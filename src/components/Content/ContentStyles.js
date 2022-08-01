@@ -38,7 +38,7 @@ export const ContentBankSection = styled.section`
   justify-content: center;
   display: flex;
   align-items: center;
-  padding: 7.3rem 0;
+  padding: 5.3rem 0;
   flex-direction: row;
   width: 100%;
 
@@ -193,6 +193,7 @@ export const ContentSearchForm = styled.div`
 padding: 1rem 0;
 display: flex;
 justify-content: center;
+margin-top
 `;
 
 export const ContentSearchFormContainer = styled.div`
@@ -272,6 +273,7 @@ background: var(--white);
 padding: 1rem;
 border-radius: 8px;
 margin: 15px 0;
+cursor: pointer;
 
 @media screen and (min-device-width: 1400px) and (max-device-width: 1600px) {
 }

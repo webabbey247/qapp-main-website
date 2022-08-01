@@ -11,6 +11,7 @@ import Merchants from "./pages/Merchants";
 import Consumers from "./pages/Consumers";
 import MyBanks from "pages/MyBanks";
 import OnboardedBanks from "pages/OnboardedBanks";
+import OnboardedMerchants from "pages/OnboardedMerchants";
 import "./styles/normalize.css";
 import "./styles/responsive.css";
 
@@ -34,6 +35,7 @@ function App() {
         <Route path='/onboarding/consumers' exact component={Consumers} />
         <Route path='/financial-institutions/my-banks' exact component={MyBanks} />
         <Route path='/financial-institutions/onboarded-banks' exact component={OnboardedBanks} />
+        <Route path='/merchants/onboaded' exact component={OnboardedMerchants} />
       </Switch>
     </Router>
   );

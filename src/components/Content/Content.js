@@ -39,8 +39,7 @@ import { Link } from "react-router-dom";
 
 const Content = ({ pageType }) => {
 
-  const [dispatchVideo, setDispatchVideo] = useState(true)
-  const [ecommerceVideo, setEcommerceVideo] = useState(false)
+  const [logisticVid, setLogisticVid] = useState(false)
 
   return (
     <>
@@ -59,7 +58,7 @@ const Content = ({ pageType }) => {
               <Content2Column2>
                 <ContentVideoContainer>
                   <GeneralMdText fontSize="24px" margin="23px 0 10px" lineHeight="35px" textAlign="left" color="var(--orange)" textTransform="unset" fontWeight="600">See How it works</GeneralMdText>
-                      {/* <video width="550" frameBorder="0" height="350" preload="none" autoPlay="true" loop="true" playsInline="" poster={video}>
+                  {/* <video width="550" frameBorder="0" height="350" preload="none" autoPlay="true" loop="true" playsInline="" poster={video}>
                       <source src={videoMP4} type="video/mp4" />
                       </video> */}
                   <iframe width="100%" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -68,7 +67,7 @@ const Content = ({ pageType }) => {
               </Content2Column2>
 
               <Content2Column2>
-              <MFIForm />
+                <MFIForm />
               </Content2Column2>
 
               <Content2Column2>
@@ -100,34 +99,17 @@ const Content = ({ pageType }) => {
               </ContentFullColumn>
               <Content2Column2>
                 <ContentVideoContainer>
-                  <GeneralMdText fontSize="24px" margin="0 0 10px" lineHeight="35px" textAlign="left" color="var(--orange)" textTransform="unset" fontWeight="600">See How it works</GeneralMdText>
+                  <GeneralMdText fontSize="24px" margin="0.65rem 0" lineHeight="35px" textAlign="left" color="var(--orange)" textTransform="unset" fontWeight="600">{logisticVid ? "Logistic" : "E-Commerce"}: See How it works</GeneralMdText>
 
-                  {/* <video width="550" frameBorder="0" height="350" preload="none" autoPlay="true" loop="true" playsInline="" poster={video}>
-                  <source src={videoMP4} type="video/mp4" />
-                  </video> */}
-
-                  {dispatchVideo ? (
+                  {logisticVid ? (
                     <iframe width="100%" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                   ) : (
                     <iframe width="100%" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                   )}
 
-                  <GeneralSmText onClick={()=> 
-                    {
-                      setDispatchVideo(true);
-                      setEcommerceVideo(false)}
-                    } 
-                    color="var(--orange)" margin="1rem 0 0.6rem" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-                    Logistic: {dispatchVideo ? "" : "How it works"}
-                  </GeneralSmText>
-
-                  <GeneralSmText onClick={()=> 
-                    {
-                      setDispatchVideo(false); 
-                    setEcommerceVideo(true)
-                    }} 
+                  <GeneralSmText onClick={() => setLogisticVid(!logisticVid)} margin="1rem 0"
                     color="var(--primary)" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-                    E-Commerce: {ecommerceVideo ? "" : "How it works"}
+                    {logisticVid ? "E-Commerce" : "Logistics"}: See How it works
                   </GeneralSmText>
 
                 </ContentVideoContainer>
@@ -141,69 +123,20 @@ const Content = ({ pageType }) => {
                 <MobileContainer>
                   <GeneralMdText fontSize="24px" margin="0 0 10px" lineHeight="35px" textAlign="left" color="var(--orange)" textTransform="unset" fontWeight="600">See How it works</GeneralMdText>
                   <MobileVideoContainer>
-                    {/* <video width="550" frameBorder="0" height="350" preload="none" autoPlay="true" loop="true" playsInline="" poster={video}>
-                <source src={videoMP4} type="video/mp4" />
-            </video> */}
-
-                    {dispatchVideo ? (
-                      <iframe width="550" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    ) : (
-                      <iframe width="550" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    )}
-
+                  {logisticVid ? (
+                    <iframe width="100%" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                  ) : (
+                    <iframe width="100%" frameBorder="0" height="350" src="https://www.youtube.com/embed/pygGug3TCaI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                  )}
                   </MobileVideoContainer>
-                  {dispatchVideo ? (
-                    <GeneralSmText color="var(--orange)" margin="1rem 0 0.6rem" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-                    Dispatch Merchant:
+                  <GeneralSmText onClick={() => setLogisticVid(!logisticVid)} margin="1rem 0"
+                    color="var(--primary)" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
+                    {logisticVid ? "E-Commerce" : "Logistics"}: See How it works
                   </GeneralSmText>
-                  ) : (
-                    <GeneralSmText color="var(--primary)" margin="1rem 0 0.6rem" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-                    Dispatch Merchant: How it works
-                  </GeneralSmText>
-
-                  )}
-                  
-
-                  {ecommerceVideo ? (
-                    <GeneralSmText color="var(--orange)" margin="0" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-                    Ecommerce Merchant:
-                  </GeneralSmText>
-                  ) : (
-                    <GeneralSmText color="var(--primary)" margin="0" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-                    Ecommerce Merchant: "How it works
-                  </GeneralSmText>
-                  )}
-
                 </MobileContainer>
               </Content2Column2>
             </ContentRow>
           </ContentContainer>
-          {/* <ContentContainer>
-          <ContentRow>
-            
-              <Content2Column2>
-              <GeneralMdText margin="0.6rem 0" fontSize="24px" lineHeight="39px" textAlign="left" color="var(--orange)" textTransform="capitalize" fontWeight="600">
-                How it works
-                </GeneralMdText>
-
-              <ContentVideoContainer>
-                <ContentVideoPlaceholder />
-              </ContentVideoContainer>
-
-              <GeneralMdText color="var(--orange)" margin="1rem 0 0.6rem" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-           Dispatch Merchant: How it works
-            </GeneralMdText>
-
-            <GeneralMdText color="var(--primary)" margin="0" fontSize="18px" lineHeight="29.05px" fontWeight="600" textAlign="left" textTransform="unset">
-           Ecommerce Merchant: How it works
-            </GeneralMdText>
-
-              </Content2Column2>
-              <Content2Column2>
-                <MerchantForm />
-              </Content2Column2>
-            </ContentRow>
-          </ContentContainer> */}
         </MerchantSection>
       )}
 
@@ -225,9 +158,7 @@ const Content = ({ pageType }) => {
       {pageType === "mybanks" && (
         <ContentBankSection>
           <ContentContainer>
-
             <ContentRow>
-
               <ContentFullColumn>
                 <Link to="/">
                   <ContentBackIcon>
@@ -276,9 +207,11 @@ const Content = ({ pageType }) => {
                       </ContentBankChildRTL>
                     </ContentBankChild>
 
-                    <ContentBankCta>
+                   <Link to="/financial-institutions/onboarded-banks">
+                   <ContentBankCta>
                       Want to bank with a new Financial Institution?
                     </ContentBankCta>
+                   </Link>
                   </ContentSearchFormContainer>
                 </ContentBankList>
 
@@ -355,6 +288,87 @@ const Content = ({ pageType }) => {
                     </ContentBankChild>
 
 
+                  </ContentSearchFormContainer>
+                </ContentBankList>
+              </ContentFullColumn>
+            </ContentRow>
+          </ContentContainer>
+        </ContentBankSection>
+      )}
+
+{pageType === "activeMerchants" && (
+        <ContentBankSection>
+          <ContentContainer>
+
+            <ContentRow>
+
+              <ContentFullColumn>
+                <Link to="/">
+                  <ContentBackIcon>
+                    <BiArrowBack size="28" color="var(--icon-color)" />
+                  </ContentBackIcon>
+                </Link>
+              </ContentFullColumn>
+
+              <ContentFullColumn>
+                <GeneralMdText textAlign="center" color="var(--orange)" fontSize="30px" lineHeight="40px" fontWeight="600" textTransform="unset">
+                Merchants actively working with us
+                </GeneralMdText>
+
+                <ContentSearchForm>
+                  <ContentSearchFormContainer>
+                    <SearchInput
+                      name='search'
+                      type='text'
+                      placeholder='Search'
+                    />
+                    <SearchIconHolder>
+                      <BiSearch color="#292D32" size='28' strokeWidth="0" />
+                    </SearchIconHolder>
+                  </ContentSearchFormContainer>
+                </ContentSearchForm>
+
+                <ContentBankList>
+                  <ContentSearchFormContainer>
+                    <ContentBankChild>
+                      <ContentBankChildLTR>
+                        <ContentBankLogo src={bankPlaceholder} alt="Ryan store" />
+                        <GeneralSmText textAlign="center" color="var(--primary)" fontSize="20px" lineHeight="24px" fontWeight="600" textTransform="capitalize" margin="5px 0 0">Ryan store</GeneralSmText>
+                      </ContentBankChildLTR>
+                      <ContentBankChildRTL>
+                        <BiCaretRight color="var(--icon-color)" size='28' strokeWidth="0" />
+                      </ContentBankChildRTL>
+                    </ContentBankChild>
+
+                    <ContentBankChild>
+                      <ContentBankChildLTR>
+                        <ContentBankLogo src={bankPlaceholder} alt="Maryflo Fashion House" />
+                        <GeneralSmText textAlign="center" color="var(--primary)" fontSize="20px" lineHeight="24px" fontWeight="600" textTransform="capitalize" margin="5px 0 0">Maryflo Fashion House</GeneralSmText>
+                      </ContentBankChildLTR>
+                      <ContentBankChildRTL>
+                        <BiCaretRight color="var(--icon-color)" size='28' strokeWidth="0" />
+                      </ContentBankChildRTL>
+                    </ContentBankChild>
+
+                    <ContentBankChild>
+                      <ContentBankChildLTR>
+                        <ContentBankLogo src={bankPlaceholder} alt="Beebah’s Shoes and bags" />
+                        <GeneralSmText textAlign="center" color="var(--primary)" fontSize="20px" lineHeight="24px" fontWeight="600" textTransform="capitalize" margin="5px 0 0">Beebah’s Shoes and bags</GeneralSmText>
+                      </ContentBankChildLTR>
+                      <ContentBankChildRTL>
+                        <BiCaretRight color="var(--icon-color)" size='28' strokeWidth="0" />
+                      </ContentBankChildRTL>
+                    </ContentBankChild>
+
+                    <ContentBankChild>
+                      <ContentBankChildLTR>
+                        <ContentBankLogo src={bankPlaceholder} alt="Emcare Pharmacy" />
+                        <GeneralSmText textAlign="center" color="var(--primary)" fontSize="20px" lineHeight="24px" fontWeight="600" textTransform="capitalize" margin="5px 0 0">Emcare Pharmacy</GeneralSmText>
+                      </ContentBankChildLTR>
+                      <ContentBankChildRTL>
+                        <BiCaretRight color="var(--icon-color)" size='28' strokeWidth="0" />
+                      </ContentBankChildRTL>
+                    </ContentBankChild>
                   </ContentSearchFormContainer>
                 </ContentBankList>
               </ContentFullColumn>
